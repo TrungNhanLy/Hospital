@@ -1,0 +1,1 @@
+create index IX_3807BB32 on hos_staff (name);

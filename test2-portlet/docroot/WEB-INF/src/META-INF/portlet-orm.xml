@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="org.pn.model.impl.BillsModelImpl">
+		<attributes>
+			<id name="bill_no" />
+			<basic name="patient_name" />
+			<basic name="doctor_name" />
+			<basic name="bill_date">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="amount" />
+			<basic name="id_patient" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="org.pn.model.impl.DiagnosisModelImpl">
+		<attributes>
+			<id name="diagnosis_no" />
+			<basic name="detail" />
+			<basic name="remak">
+				<column name="SYMPTOMS" />
+			</basic>
+			<basic name="diagnosis_date">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="id_patient" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="org.pn.model.impl.DoctorsModelImpl">
+		<attributes>
+			<id name="id_doctor" />
+			<basic name="name" />
+			<basic name="address" />
+			<basic name="position" />
+			<basic name="gender" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="org.pn.model.impl.DrugModelImpl">
+		<attributes>
+			<id name="id_drug">
+				<column name="ID_MEDICINE" />
+			</id>
+			<basic name="name_medicine" />
+			<basic name="quantity" />
+			<basic name="price" />
+			<basic name="expiration_date">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="org.pn.model.impl.MedicineModelImpl">
+		<attributes>
+			<id name="id_medicine" />
+			<basic name="bill_no" />
+			<basic name="id_drug" />
+			<basic name="quantity" />
+			<basic name="remark" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="org.pn.model.impl.PatientsModelImpl">
+		<attributes>
+			<id name="id_patient" />
+			<basic name="name" />
+			<basic name="address" />
+			<basic name="phonenumber" />
+			<basic name="department" />
+			<basic name="symptoms" />
+			<basic name="gender" />
+			<basic name="id_doctor" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="org.pn.model.impl.RoomPatientModelImpl">
+		<attributes>
+			<id name="room_no" />
+			<basic name="status" />
+			<basic name="id_patient" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="org.pn.model.impl.StaffsModelImpl">
+		<attributes>
+			<id name="id_staff" />
+			<basic name="name" />
+			<basic name="gender" />
+			<basic name="department" />
+			<basic name="phonenumber" />
+			<basic name="id_doctor" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="org.pn.model.impl.BillsImpl" name="Bills">
+		<table name="hos_bill" />
+		<attributes />
+	</entity>
+	<entity class="org.pn.model.impl.DiagnosisImpl" name="Diagnosis">
+		<table name="hos_diagnosis" />
+		<attributes />
+	</entity>
+	<entity class="org.pn.model.impl.DoctorsImpl" name="Doctors">
+		<table name="hos_doctor" />
+		<attributes />
+	</entity>
+	<entity class="org.pn.model.impl.DrugImpl" name="Drug">
+		<table name="hos_drug" />
+		<attributes />
+	</entity>
+	<entity class="org.pn.model.impl.MedicineImpl" name="Medicine">
+		<table name="hos_medicine" />
+		<attributes />
+	</entity>
+	<entity class="org.pn.model.impl.PatientsImpl" name="Patients">
+		<table name="hos_patient" />
+		<attributes />
+	</entity>
+	<entity class="org.pn.model.impl.RoomPatientImpl" name="RoomPatient">
+		<table name="hos_roompatient" />
+		<attributes />
+	</entity>
+	<entity class="org.pn.model.impl.StaffsImpl" name="Staffs">
+		<table name="hos_staff" />
+		<attributes />
+	</entity>
+</entity-mappings>

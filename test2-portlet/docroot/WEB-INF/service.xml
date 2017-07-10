@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" 
+"http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="org.pn" auto-namespace-tables="false">
+	<author>thuctap</author>
+	<namespace>service</namespace>
+	
+	<entity name="Staffs" local-service="true" remote-service="false" table="hos_staff">
+		<column name="id_staff" db-name="id_staff" type="long" primary="true"></column>
+		<column name="name" db-name="name" type="String"></column>
+		<column name="gender" db-name="gender" type="String"></column>
+		<column name="department" db-name="department" type="String"></column>
+		<column name="phonenumber" db-name="phonenumber" type="String"></column>
+		<column name="id_doctor" db-name="id_doctor" type="long"></column>
+	</entity>
+	
+	<entity name="Doctors" local-service="true" remote-service="false" table="hos_doctor">
+		<column name="id_doctor" db-name="id_doctor" type="long" primary="true"></column>
+		<column name="name" db-name="name" type="String"></column>
+		<column name="address" db-name="address" type="String"></column>
+		<column name="position" db-name="position" type="String"></column>
+		<column name="gender" db-name="gender" type="String"></column>
+	</entity>
+	
+	<entity name="Patients" local-service="true" remote-service="false" table="hos_patient">
+		<column name="id_patient" db-name="id_patient" type="long" primary="true"></column>
+		<column name="name" db-name="name" type="String"></column>
+		<column name="address" db-name="address" type="String"></column>
+		<column name="phonenumber" db-name="phonenumber" type="String"></column>
+		<column name="department" db-name="department" type="String"></column>
+		<column name="symptoms" db-name="symptoms" type="String"></column>
+		<column name="gender" db-name="gender" type="String"></column>
+		<column name="id_doctor" db-name="id_doctor" type="long"></column>
+	</entity>
+	
+	<entity name="RoomPatient" local-service="true" remote-service="false" table="hos_roompatient">
+		<column name="room_no" db-name="room_no" type="long" primary="true"></column>
+		<column name="status" db-name="status" type="String"></column>
+		<column name="id_patient" db-name="id_patient" type="long"></column>
+	</entity>
+	
+	
+	<entity name="Diagnosis" local-service="true" remote-service="false" table="hos_diagnosis">
+		<column name="diagnosis_no" db-name="diagnosis_no" type="long" primary="true"></column>
+		<column name="detail" db-name="detail" type="String"></column>
+		<column name="remak" db-name="symptoms" type="String"></column>
+		<column name="diagnosis_date" db-name="diagnosis_date" type="Date"></column>
+		<column name="id_patient" db-name="id_patient" type="long"></column>
+	</entity>
+	
+	<entity name="Bills" local-service="true" remote-service="false" table="hos_bill">
+		<column name="bill_no" db-name="bill_no" type="long" primary="true"></column>
+		<column name="patient_name" db-name="patient_name" type="String"></column>
+		<column name="doctor_name" db-name="doctor_name" type="String"></column>
+		<column name="bill_date" db-name="bill_date" type="Date"></column>
+		<column name="amount" db-name="amount" type="int"></column>
+		<column name="id_patient" db-name="id_patient" type="long"></column>
+	</entity>
+	
+	<entity name="Medicine" local-service="true" remote-service="false" table="hos_medicine">
+		<column name="id_medicine" db-name="id_medicine" type="long" primary="true"></column>
+		<column name="bill_no" db-name="bill_no" type="long"></column>
+		<column name="id_drug" db-name="id_drug" type="long"></column>
+		<column name="quantity" db-name="quantity" type="int"></column>
+		<column name="remark" db-name="remark" type="String"></column>
+	</entity>
+	
+	<entity name="Drug" local-service="true" remote-service="false" table="hos_drug">
+		<column name="id_drug" db-name="id_medicine" type="long" primary="true"></column>
+		<column name="name_medicine" db-name="name_medicine" type="String"></column>
+		<column name="quantity" db-name="quantity" type="int"></column>
+		<column name="price" db-name="price" type="String"></column>
+		<column name="expiration_date" db-name="expiration_date" type="Date"></column>
+	</entity>
+	
+</service-builder>

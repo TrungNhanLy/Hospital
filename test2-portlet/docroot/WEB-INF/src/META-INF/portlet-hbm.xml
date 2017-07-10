@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="org.pn.model.Bills" />
+	<import class="org.pn.model.Diagnosis" />
+	<import class="org.pn.model.Doctors" />
+	<import class="org.pn.model.Drug" />
+	<import class="org.pn.model.Medicine" />
+	<import class="org.pn.model.Patients" />
+	<import class="org.pn.model.RoomPatient" />
+	<import class="org.pn.model.Staffs" />
+	<class name="org.pn.model.impl.BillsImpl" table="hos_bill">
+		<cache usage="read-write" />
+		<id name="bill_no" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="patient_name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="doctor_name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="bill_date" type="org.hibernate.type.TimestampType" />
+		<property name="amount" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="id_patient" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="org.pn.model.impl.DiagnosisImpl" table="hos_diagnosis">
+		<cache usage="read-write" />
+		<id name="diagnosis_no" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="detail" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="remak" type="com.liferay.portal.dao.orm.hibernate.StringType" column="symptoms" />
+		<property name="diagnosis_date" type="org.hibernate.type.TimestampType" />
+		<property name="id_patient" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="org.pn.model.impl.DoctorsImpl" table="hos_doctor">
+		<cache usage="read-write" />
+		<id name="id_doctor" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="address" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="position" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="gender" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="org.pn.model.impl.DrugImpl" table="hos_drug">
+		<cache usage="read-write" />
+		<id name="id_drug" column="id_medicine" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="name_medicine" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="quantity" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="price" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="expiration_date" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="org.pn.model.impl.MedicineImpl" table="hos_medicine">
+		<cache usage="read-write" />
+		<id name="id_medicine" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="bill_no" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="id_drug" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="quantity" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="remark" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="org.pn.model.impl.PatientsImpl" table="hos_patient">
+		<cache usage="read-write" />
+		<id name="id_patient" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="address" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="phonenumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="department" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="symptoms" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="gender" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_doctor" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="org.pn.model.impl.RoomPatientImpl" table="hos_roompatient">
+		<cache usage="read-write" />
+		<id name="room_no" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_patient" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="org.pn.model.impl.StaffsImpl" table="hos_staff">
+		<cache usage="read-write" />
+		<id name="id_staff" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="gender" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="department" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="phonenumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_doctor" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+</hibernate-mapping>

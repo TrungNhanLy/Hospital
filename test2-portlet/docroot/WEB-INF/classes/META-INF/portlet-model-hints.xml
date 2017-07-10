@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="org.pn.model.Bills">
+		<field name="bill_no" type="long" />
+		<field name="patient_name" type="String" />
+		<field name="doctor_name" type="String" />
+		<field name="bill_date" type="Date" />
+		<field name="amount" type="int" />
+		<field name="id_patient" type="long" />
+	</model>
+	<model name="org.pn.model.Diagnosis">
+		<field name="diagnosis_no" type="long" />
+		<field name="detail" type="String" />
+		<field name="remak" type="String" />
+		<field name="diagnosis_date" type="Date" />
+		<field name="id_patient" type="long" />
+	</model>
+	<model name="org.pn.model.Doctors">
+		<field name="id_doctor" type="long" />
+		<field name="name" type="String" />
+		<field name="address" type="String" />
+		<field name="position" type="String" />
+		<field name="gender" type="String" />
+	</model>
+	<model name="org.pn.model.Drug">
+		<field name="id_drug" type="long" />
+		<field name="name_medicine" type="String" />
+		<field name="quantity" type="int" />
+		<field name="price" type="String" />
+		<field name="expiration_date" type="Date" />
+	</model>
+	<model name="org.pn.model.Medicine">
+		<field name="id_medicine" type="long" />
+		<field name="bill_no" type="long" />
+		<field name="id_drug" type="long" />
+		<field name="quantity" type="int" />
+		<field name="remark" type="String" />
+	</model>
+	<model name="org.pn.model.Patients">
+		<field name="id_patient" type="long" />
+		<field name="name" type="String" />
+		<field name="address" type="String" />
+		<field name="phonenumber" type="String" />
+		<field name="department" type="String" />
+		<field name="symptoms" type="String" />
+		<field name="gender" type="String" />
+		<field name="id_doctor" type="long" />
+	</model>
+	<model name="org.pn.model.RoomPatient">
+		<field name="room_no" type="long" />
+		<field name="status" type="String" />
+		<field name="id_patient" type="long" />
+	</model>
+	<model name="org.pn.model.Staffs">
+		<field name="id_staff" type="long" />
+		<field name="name" type="String" />
+		<field name="gender" type="String" />
+		<field name="department" type="String" />
+		<field name="phonenumber" type="String" />
+		<field name="id_doctor" type="long" />
+	</model>
+</model-hints>

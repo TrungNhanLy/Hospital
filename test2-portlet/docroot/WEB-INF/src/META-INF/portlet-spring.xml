@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="org.pn.service.BillsLocalService" class="org.pn.service.impl.BillsLocalServiceImpl" />
+	<bean id="org.pn.service.persistence.BillsPersistence" class="org.pn.service.persistence.BillsPersistenceImpl" parent="basePersistence" />
+	<bean id="org.pn.service.DiagnosisLocalService" class="org.pn.service.impl.DiagnosisLocalServiceImpl" />
+	<bean id="org.pn.service.persistence.DiagnosisPersistence" class="org.pn.service.persistence.DiagnosisPersistenceImpl" parent="basePersistence" />
+	<bean id="org.pn.service.DoctorsLocalService" class="org.pn.service.impl.DoctorsLocalServiceImpl" />
+	<bean id="org.pn.service.persistence.DoctorsPersistence" class="org.pn.service.persistence.DoctorsPersistenceImpl" parent="basePersistence" />
+	<bean id="org.pn.service.DrugLocalService" class="org.pn.service.impl.DrugLocalServiceImpl" />
+	<bean id="org.pn.service.persistence.DrugPersistence" class="org.pn.service.persistence.DrugPersistenceImpl" parent="basePersistence" />
+	<bean id="org.pn.service.MedicineLocalService" class="org.pn.service.impl.MedicineLocalServiceImpl" />
+	<bean id="org.pn.service.persistence.MedicinePersistence" class="org.pn.service.persistence.MedicinePersistenceImpl" parent="basePersistence" />
+	<bean id="org.pn.service.PatientsLocalService" class="org.pn.service.impl.PatientsLocalServiceImpl" />
+	<bean id="org.pn.service.persistence.PatientsPersistence" class="org.pn.service.persistence.PatientsPersistenceImpl" parent="basePersistence" />
+	<bean id="org.pn.service.RoomPatientLocalService" class="org.pn.service.impl.RoomPatientLocalServiceImpl" />
+	<bean id="org.pn.service.persistence.RoomPatientPersistence" class="org.pn.service.persistence.RoomPatientPersistenceImpl" parent="basePersistence" />
+	<bean id="org.pn.service.StaffsLocalService" class="org.pn.service.impl.StaffsLocalServiceImpl" />
+	<bean id="org.pn.service.persistence.StaffsPersistence" class="org.pn.service.persistence.StaffsPersistenceImpl" parent="basePersistence" />
+</beans>
